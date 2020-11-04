@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HandleMsg",
+  "anyOf": [
+    {
+      "type": "object",
+      "required": [
+        "crte_pool"
+      ],
+      "properties": {
+        "crte_pool": {
+          "type": "object"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "lock_pool"
+      ],
+      "properties": {
+        "lock_pool": {
+          "type": "object"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "clse_pool"
+      ],
+      "properties": {
+        "clse_pool": {
+          "type": "object"
+        }
+      }
+    }
+  ]
+}
