@@ -81,7 +81,7 @@ pub fn admin_lock_pool<S: Storage, A: Api, Q: Querier>(
         ));
     }
     // Ensure that pool is open for 1 day before locking.
-    pool.assert_ready_for_status_change(env.block.height)?;
+    pool.assert_ready_for_status_change(env.block.time)?;
     pool.lock(env.block.time);
     pool_storage(&mut deps.storage).save(&pool)?;
     // TODO: Send all funds to validator node.
