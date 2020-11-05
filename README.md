@@ -2,9 +2,9 @@
 
 # How it works:
 1. Admin creates pool. Pool is OPEN.
-2. Player delegate funds to pool.
+2. Players delegate SCRT tokens to pool.
 3. Admin locks pool. Delegated coins are staked to a validator node. Pool is LOCKED.
-4. After 21 days, Admin releases the fund and closes the pool. A winner will ebe slected randomly.
+4. After 21 days, Admin releases the fund and closes the pool. A winner will be selected randomly.
 5. User can claim their fund/reward. Pool is CLOSED.
 
 # Pool Explained:

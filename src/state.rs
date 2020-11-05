@@ -69,7 +69,7 @@ impl Pool {
         self.status = PoolStatus::CLOSED;
         self.status_updated_at = time;
     }
-    pub fn assert_ready_for_status_change(&self, curr_time: u64) -> StdResult<()> {
+    pub fn assert_status_has_expired(&self, curr_time: u64) -> StdResult<()> {
         match self.status {
             PoolStatus::OPEN => {
                 if self.status_updated_at + 1 * DAYS > curr_time {

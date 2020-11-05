@@ -81,7 +81,7 @@ pub fn admin_lock_pool<S: Storage, A: Api, Q: Querier>(
         ));
     }
     // Ensure that pool is open for 1 day before locking.
-    pool.assert_ready_for_status_change(env.block.time)?;
+    pool.assert_status_has_expired(env.block.time)?;
     pool.lock(env.block.time);
     pool_storage(&mut deps.storage).save(&pool)?;
     // TODO: Send all funds to validator node.
@@ -102,7 +102,7 @@ pub fn admin_close_pool<S: Storage, A: Api, Q: Querier>(
         return Err(StdError::generic_err("Pool is not LOCKED."));
     }
     // Pool must remain locked for 2 days before closing.
-    pool.assert_ready_for_status_change(env.block.time)?;
+    pool.assert_status_has_expired(env.block.time)?;
     pool.close(env.block.time);
     pool_storage(&mut deps.storage).save(&pool)?;
     Ok(HandleResponse::default())
